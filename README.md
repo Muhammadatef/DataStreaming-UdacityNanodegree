@@ -26,7 +26,8 @@ To use the code from this repository:
 
 1. Clone the repo to your local machine:
 
-``` bash git clone [https://github.com/Muhammadatef/DataStreaming-UdacityNanodegree](https://github.com/Muhammadatef/DataStreaming-UdacityNanodegree) ```
+```bash
+git clone https://github.com/Muhammadatef/DataStreaming-UdacityNanodegree
 
 2. Navigate to the specific project or exercise directory.
 3. Follow the README instructions within each directory to set up and run the code.
