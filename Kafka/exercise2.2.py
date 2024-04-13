@@ -11,7 +11,6 @@ BROKER_URL = "PLAINTEXT://localhost:9092"
 
 def topic_exists(client, topic_name):
     """Checks if the given topic exists"""
-    # TODO: Check to see if the given topic exists
     #       See: https://docs.confluent.io/current/clients/confluent-kafka-python/#confluent_kafka.Consumer.list_topics
     topic_metadata= client.list_topics(timeout=5)
     return topic_metadata.topics.get(topic_name) is not None
@@ -19,11 +18,6 @@ def topic_exists(client, topic_name):
 
 def create_topic(client, topic_name):
     """Creates the topic with the given topic name"""
-    # TODO: Create the topic. Make sure to set the topic name, the number of partitions, the
-    # replication factor. Additionally, set the config to have a cleanup policy of delete, a
-    # compression type of lz4, delete retention milliseconds of 2 seconds, and a file delete delay
-    # milliseconds of 2 second.
-    #
     # See: https://docs.confluent.io/current/clients/confluent-kafka-python/#confluent_kafka.admin.NewTopic
     # See: https://docs.confluent.io/current/installation/configuration/topic-configs.html
     futures = client.create_topics(
@@ -56,9 +50,7 @@ def main():
     """Checks for topic and creates the topic if it does not exist"""
     client = AdminClient({"bootstrap.servers": BROKER_URL})
 
-    #
-    # TODO: Decide on a topic name
-    #
+   
     topic_name = "MAF"
     exists = topic_exists(client, topic_name)
     print(f"Topic {topic_name} exists: {exists}")
