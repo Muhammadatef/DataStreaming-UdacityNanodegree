@@ -1,5 +1,3 @@
-# Please complete the TODO items in the code.
-
 import asyncio
 from dataclasses import dataclass, field
 import json
