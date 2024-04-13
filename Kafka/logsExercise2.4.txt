@@ -1,0 +1,34 @@
+consumed 100 messages
+consumed 200 messages
+consumed 300 messages
+consumed 400 messages
+consumed 500 messages
+consumed 600 messages
+consumed 700 messages
+consumed 800 messages
+consumed 900 messages
+consumed 1000 messages
+consumed 1100 messages
+consumed 1200 messages
+consumed 1300 messages
+consumed 1400 messages
+consumed 1500 messages
+consumed 1600 messages
+consumed 1700 messages
+consumed 1800 messages
+consumed 1900 messagesexiting production loop
+consumed 100 messages
+consumed 200 messages
+consumed 300 messages
+consumed 400 messages
+consumed 500 messages
+consumed 600 messages
+consumed 700 messages
+consumed 800 messages
+consumed 900 messages
+consumed 1000 messages
+consumed 1100 messages
+consumed 1200 messages
+consumed 1300 messages
+consumed 1400 messages
+shutting down
