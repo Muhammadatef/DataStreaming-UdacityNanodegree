@@ -1,0 +1,20 @@
+Topic MAF exists: True
+no message received by consumer
+no message received by consumer
+consumed message None: b'iteration 203'
+consumed message None: b'iteration 205'
+consumed message None: b'iteration 206'
+consumed message None: b'iteration 216'
+consumed message None: b'iteration 226'
+consumed message None: b'iteration 229'
+consumed message None: b'iteration 230'
+consumed message None: b'iteration 233'
+consumed message None: b'iteration 235'
+consumed message None: b'iteration 236'
+consumed message None: b'iteration 241'
+consumed message None: b'iteration 250'
+consumed message None: b'iteration 255'
+consumed message None: b'iteration 261'
+consumed message None: b'iteration 264'
+consumed message None: b'iteration 274'
+consumed message None: b'iteration 275'
