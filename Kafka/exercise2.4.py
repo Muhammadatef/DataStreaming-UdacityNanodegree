@@ -24,7 +24,7 @@ class Purchase:
 
     def serialize(self):
         """Serializes the object in JSON string format"""
-        # TODO: Serializer the Purchase object
+        #  Serializer the Purchase object
         #       See: https://docs.python.org/3/library/json.html#json.dumps
         return json.dumps(
         {
