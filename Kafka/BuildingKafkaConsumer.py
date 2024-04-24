@@ -27,12 +27,7 @@ async def consume(topic_name):
         for message in messages:
                 print(f"data recieved : {message.key()} : {message.value()}")
 
-        # TODO: Write a loop that uses consume to grab 5 messages at a time and has a timeout.
-        #       See: https://docs.confluent.io/current/clients/confluent-kafka-python/index.html?highlight=partition#confluent_kafka.Consumer.consume
-        #
-
-        # TODO: Print something to indicate how many messages you've consumed. Print the key and value of
-        #       any message(s) you consumed
+       
 
         # Do not delete this!
         await asyncio.sleep(0.01)
@@ -83,3 +78,15 @@ class Purchase:
 
 if __name__ == "__main__":
     main()
+
+
+
+
+## OUTPUT 
+
+# consumed 5 messages
+# data recieved : None : b'{"username": "joseph92", "currency": "ARS", "amount": 46299}'
+# data recieved : None : b'{"username": "flemingdylan", "currency": "JOD", "amount": 148880}'
+# data recieved : None : b'{"username": "qfoley", "currency": "TND", "amount": 126845}'
+# data recieved : None : b'{"username": "mbuckley", "currency": "LAK", "amount": 151691}'
+# data recieved : None : b'{"username": "mccarthyjulie", "currency": "BOB", "amount": 4105}'
