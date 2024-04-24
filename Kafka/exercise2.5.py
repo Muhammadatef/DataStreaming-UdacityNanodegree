@@ -14,8 +14,8 @@ async def consume(topic_name):
     # Sleep for a few seconds to give the producer time to create some data
     await asyncio.sleep(2.5)
 
-    # TODO: Set the auto offset reset to earliest
-    #       See: https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md
+    #  Set the auto offset reset to earliest
+    
     c = Consumer(
         {
             "bootstrap.servers": BROKER_URL,
@@ -24,7 +24,7 @@ async def consume(topic_name):
         }
     )
 
-    # TODO: Configure the on_assign callback
+    #  Configure the on_assign callback
     #       See: https://docs.confluent.io/current/clients/confluent-kafka-python/index.html?highlight=partition#confluent_kafka.Consumer.subscribe
     c.subscribe([topic_name], on_assign=on_assign)
 
@@ -41,13 +41,13 @@ async def consume(topic_name):
 
 def on_assign(consumer, partitions):
     """Callback for when topic assignment takes place"""
-    # TODO: Set the partition offset to the beginning on every boot.
+    #  Set the partition offset to the beginning on every boot.
     #       See: https://docs.confluent.io/current/clients/confluent-kafka-python/index.html?highlight=partition#confluent_kafka.Consumer.on_assign
     #       See: https://docs.confluent.io/current/clients/confluent-kafka-python/index.html?highlight=partition#confluent_kafka.TopicPartition
     for partition in partitions:
         partition.offset = OFFSET_BEGINNING
 
-    # TODO: Assign the consumer the partitions
+    #  Assign the consumer the partitions
     #       See: https://docs.confluent.io/current/clients/confluent-kafka-python/index.html?highlight=partition#confluent_kafka.Consumer.assign
     consumer.assign(partitions)
 
@@ -82,3 +82,43 @@ async def produce_consume(topic_name):
 
 if __name__ == "__main__":
     main()
+
+
+
+
+
+## OUTPUT : 
+# root@2aca0b1f17ee1be103cd28f3f8c7748a75091206-644b89b5cf-2tp4p:/workspace/home# python exercise2.5.py
+# no message received by consumer
+# no message received by consumer
+# no message received by consumer
+# consumed message None: b'iteration 0'
+# consumed message None: b'iteration 1'
+# consumed message None: b'iteration 2'
+# consumed message None: b'iteration 3'
+# consumed message None: b'iteration 4'
+# consumed message None: b'iteration 5'
+# consumed message None: b'iteration 6'
+# consumed message None: b'iteration 7'
+# consumed message None: b'iteration 8'
+# consumed message None: b'iteration 9'
+# consumed message None: b'iteration 10'
+# consumed message None: b'iteration 11'
+# consumed message None: b'iteration 12'
+# consumed message None: b'iteration 13'
+# consumed message None: b'iteration 14'
+# consumed message None: b'iteration 15'
+# consumed message None: b'iteration 16'
+# consumed message None: b'iteration 17'
+# consumed message None: b'iteration 18'
+# consumed message None: b'iteration 19'
+# consumed message None: b'iteration 20'
+# consumed message None: b'iteration 21'
+# consumed message None: b'iteration 22'
+# consumed message None: b'iteration 23'
+# consumed message None: b'iteration 24'
+# consumed message None: b'iteration 25'
+# consumed message None: b'iteration 26'
+# consumed message None: b'iteration 27'
+# consumed message None: b'iteration 28'
+# consumed message None: b'iteration 29'
