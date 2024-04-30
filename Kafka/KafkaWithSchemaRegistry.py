@@ -137,3 +137,34 @@ async def produce_consume(topic_name):
 
 if __name__ == "__main__":
     main()
+
+#OUTPUT Without Schema Registry with a regular Consumer  :
+
+# root@690b89aac913a6edaf627a5ad22e781bfdb1aeee-cc9c676d8-2j2fj:/workspace/home# python exercise3.4.py
+# no message received by consumer
+# no message received by consumer
+# no message received by consumer
+# b'\x00\x00\x00\x00\x01(steven25@hotmail.com&2023-05-16T09:45:32Phttps://www.allen.info/category/home.htm\x86\x03\n\x10category\x02aBtransition ubiquitous initiatives\nindex\x0cbutton2orchestrate B2C e-tailers\nterms\x0cbutton.unleash dot-com metrics\x0eprivacy\x02aBincentivize extensible e-commerce\x10homepage\x06div8incubate robust partnerships\x00'
+# b'\x00\x00\x00\x00\x01&ytownsend@gmail.com&1989-08-30T05:59:40lhttp://www.goodwin-nolan.com/main/category/privacy.php\xc8\n\x04\x08main\x06div6incubate virtual interfaces\x10category\x0cbutton>leverage end-to-end initiatives\x00'
+# b'\x00\x00\x00\x00\x01$marylamb@clark.com&2019-12-07T11:01:51Dhttps://reed.org/blog/tag/home.asp\x98\x04\x02\x0eprivacy\x0cbutton2enable magnetic mindshare\x00'
+# b'\x00\x00\x00\x00\x01&daniel29@brown.info&2014-01-27T05:13:05Bhttps://www.howell-king.com/home/\xf6\n\x04\x10homepage\x06div0seize one-to-one content\x06faq\x02a0engage robust e-services\x00'
+# b'\x00\x00\x00\x00\x01*katherine32@allen.biz&2008-03-20T16:17:17Vhttp://www.johns.org/categories/search.html\xaa\x05\x04\x08main\x02aBdisintermediate efficient systems\nindex\x06div.mesh dynamic e-services\x00'
+# b'\x00\x00\x00\x00\x014williamsjennifer@gmail.com&1978-10-26T02:09:26Dhttp://www.medina.biz/category.htm\xf0\x06\x04\x08main\x06div<visualize turn-key communities\nlogin\x02a<drive cross-platform synergies\x00'
+# b'\x00\x00\x00\x00\x01&pjones@thompson.com&2002-10-02T10:42:00$http://wagner.com/\xec\x0b\x04\nabout\x0cbutton:extend mission-critical users\x0csearch\x06div.leverage 24/7 solutions\x00'
+# b'\x00\x00\x00\x00\x01"dwagner@gmail.com&1973-01-26T08:11:52Bhttp://www.ramos.biz/homepage.htm\xde\x0c\x02\x0eprivacy\x0cbutton0evolve impactful markets\x00'
+# b'\x00\x00\x00\x00\x012justinmanning@hotmail.com&2015-12-14T22:58:026http://santiago.net/search/\xb6\x04\x06\nindex\x06divDdisintermediate out-of-the-box ROI\x10register\x02a4benchmark vertical systems\x08post\x02aFsyndicate distributed architectures\x00'
+# b'\x00\x00\x00\x00\x012swansonkristine@gmail.com&1999-08-10T14:18:37>https://www.lewis.com/login.php\xc0\x02\x02\x06faq\x0cbutton8transform user-centric users\x00'
+# b'\x00\x00\x00\x00\x01*katherine20@gmail.com&2004-11-27T03:10:168http://hughes.com/tags/main/\xde\t\x06\x08main\x06div<leverage open-source solutions\nterms\x06div.matrix global bandwidth\nindex\x02aVre-contextualize user-centric architectures\x00'
+
+## OUTPUT WITH SCHEMA REGISTRY AND AVROConsumer:
+
+# root@690b89aac913a6edaf627a5ad22e781bfdb1aeee-cc9c676d8-2j2fj:/workspace/home# python exercise3.4.py
+# no message received by consumer
+# no message received by consumer
+# {'email': 'fjohnston@schwartz.net', 'timestamp': '1974-03-30T09:04:45', 'uri': 'http://mitchell-hoffman.com/search/index.php', 'number': 168, 'attributes': {'main': {'element': 'div', 'content': 'leverage customized systems'}, 'author': {'element': 'div', 'content': 'generate virtual platforms'}, 'search': {'element': 'a', 'content': 'deploy plug-and-play mindshare'}}}
+# {'email': 'champton@gmail.com', 'timestamp': '2004-10-02T01:13:53', 'uri': 'https://www.barber-martin.com/app/search/category/homepage.htm', 'number': 911, 'attributes': {'category': {'element': 'div', 'content': 'matrix real-time infrastructures'}, 'author': {'element': 'a', 'content': 're-intermediate intuitive eyeballs'}, 'privacy': {'element': 'button', 'content': 'seize innovative platforms'}}}
+# {'email': 'jennifer55@yahoo.com', 'timestamp': '1989-01-28T03:10:46', 'uri': 'https://www.vang.com/home.htm', 'number': 37, 'attributes': {'index': {'element': 'a', 'content': 'strategize scalable web services'}, 'author': {'element': 'div', 'content': 'orchestrate killer e-tailers'}, 'homepage': {'element': 'div', 'content': 'transition cross-platform web services'}, 'login': {'element': 'button', 'content': 'evolve frictionless portals'}}}
+# {'email': 'cperkins@gmail.com', 'timestamp': '2006-08-19T14:51:21', 'uri': 'http://www.smith-chavez.biz/app/main/posts/search/', 'number': 291, 'attributes': {'terms': {'element': 'div', 'content': 'harness killer platforms'}}}
+# {'email': 'carolynmullins@rhodes.biz', 'timestamp': '2007-05-19T20:43:13', 'uri': 'https://www.stewart-nelson.net/', 'number': 243, 'attributes': {'search': {'element': 'a', 'content': 'envisioneer extensible web-readiness'}, 'faq': {'element': 'button', 'content': 'disintermediate cross-media functionalities'}, 'about': {'element': 'div', 'content': 'empower intuitive convergence'}}}
+# {'email': 'michael08@hotmail.com', 'timestamp': '1980-11-07T06:29:04', 'uri': 'https://www.le.info/home/', 'number': 27, 'attributes': {'author': {'element': 'a', 'content': 'morph interactive applications'}, 'index': {'element': 'button', 'content': 'e-enable transparent ROI'}, 'post': {'element': 'button', 'content': 'empower robust metrics'}, 'terms': {'element': 'button', 'content': 'optimize world-class markets'}}}
+# {'email': 'anthony22@warren.com', 'timestamp': '1974-07-01T15:47:56', 'uri': 'https://www.sullivan.info/main.php', 'number': 249, 'attributes': {'home': {'element': 
