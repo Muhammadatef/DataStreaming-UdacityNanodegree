@@ -76,3 +76,23 @@ def run():
 
 if __name__ == "__main__":
     run()
+
+
+
+# root@6e071554e9b3f3c0ce4045b554a837f8ecc0fe98-6d797d6754-sm7jq:/workspace/home# kafka-console-consumer --topic lesson2.sample.log --bootstrap-server localhost:9092 -from-beginning
+# "log number 0"
+# "log number 1"
+# "log number 2"
+# "log number 3"
+# "log number 4"
+# "log number 5"
+# "log number 6"
+# "log number 7"
+# "log number 8"
+# "log number 9"
+# "log number 10"
+# "log number 11"
+# "log number 12"
+# "log number 13"
+# "log number 14"
+
