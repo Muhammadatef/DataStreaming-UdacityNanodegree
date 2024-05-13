@@ -5,7 +5,7 @@ import requests
 
 
 KAFKA_CONNECT_URL = "http://localhost:8083/connectors"
-CONNECTOR_NAME = "solution3"
+CONNECTOR_NAME = "clicks-jdbc"
 
 
 def configure_connector():
@@ -33,7 +33,7 @@ def configure_connector():
                 "name": "clicks-jdbc",  # TODO
                 "config": {
                     "connector.class": "io.confluent.connect.jdbc.JdbcSourceConnector",  # TODO
-                    "topic.prefix": "solution3.",  # TODO
+                    "topic.prefix": "connect-",  # TODO
                     "mode": "incrementing",  # TODO
                     "incrementing.column.name": "id",  # TODO
                     "table.whitelist": "clicks",  # TODO
