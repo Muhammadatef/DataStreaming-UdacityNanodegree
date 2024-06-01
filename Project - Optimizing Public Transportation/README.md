@@ -1,8 +1,8 @@
 # Public Transit Status with Apache Kafka
 
-In this project, you will construct a streaming event pipeline around Apache Kafka and its ecosystem. Using public data from the [Chicago Transit Authority](https://www.transitchicago.com/data/) we will construct an event pipeline around Kafka that allows us to simulate and display the status of train lines in real time.
+Construct a streaming event pipeline around Apache Kafka and its ecosystem in this project. Using public data from the [Chicago Transit Authority](https://www.transitchicago.com/data/) we will construct an event pipeline around Kafka that allows us to simulate and display the status of train lines in real-time.
 
-When the project is complete, you will be able to monitor a website to watch trains move from station to station.
+When the project is complete, you can monitor a website to watch trains move from station to station.
 
 ![Final User Interface](images/ui.png)
 
@@ -24,7 +24,7 @@ Our architecture will look like so:
 ![Project Architecture](images/diagram.png)
 
 ### Step 1: Create Kafka Producers
-The first step in our plan is to configure the train stations to emit some of the events that we need. The CTA has placed a sensor on each side of every train station that can be programmed to take an action whenever a train arrives at the station.
+The first step in our plan is to configure the train stations to emit some of the events that we need. The CTA has placed a sensor on each side of every train station that can be programmed to take action whenever a train arrives at the station.
 
 To accomplish this, you must complete the following tasks:
 
@@ -40,7 +40,7 @@ To accomplish this, you must complete the following tasks:
 1. Complete the code in `producers/models/station.py` so that:
 	* A topic is created for each station in Kafka to track the arrival events
 	* The station emits an `arrival` event to Kafka whenever the `Station.run()` function is called.
-	* Ensure that events emitted to kafka are paired with the Avro `key` and `value` schemas
+	* Ensure that events emitted to Kafka are paired with the Avro `key` and `value` schemas
 1. Define a `value` schema for the turnstile event in `producers/models/schemas/turnstile_value.json` with the following attributes
 	* `station_id`
 	* `station_name`
@@ -48,7 +48,7 @@ To accomplish this, you must complete the following tasks:
 1. Complete the code in `producers/models/turnstile.py` so that:
 	* A topic is created for each turnstile for each station in Kafka to track the turnstile events
 	* The station emits a `turnstile` event to Kafka whenever the `Turnstile.run()` function is called.
-	* Ensure that events emitted to kafka are paired with the Avro `key` and `value` schemas
+	* Ensure that events emitted to Kafka are paired with the Avro `key` and `value` schemas
 
 ### Step 2: Configure Kafka REST Proxy Producer
 Our partners at the CTA have asked that we also send weather readings into Kafka from their weather hardware. Unfortunately, this hardware is old and we cannot use the Python Client Library due to hardware restrictions. Instead, we are going to use HTTP REST to send the data to Kafka from the hardware using Kafka's REST Proxy.
@@ -76,7 +76,7 @@ To accomplish this, you must complete the following tasks:
 	* To delete a misconfigured connector: `CURL -X DELETE localhost:8083/connectors/stations`
 
 ### Step 4: Configure the Faust Stream Processor
-We will leverage Faust Stream Processing to transform the raw Stations table that we ingested from Kafka Connect. The raw format from the database has more data than we need, and the line color information is not conveniently configured. To remediate this, we're going to ingest data from our Kafka Connect topic, and transform the data.
+We will leverage Faust Stream Processing to transform the raw Stations table that we ingested from Kafka Connect. The raw format from the database has more data than we need, and the line color information is not conveniently configured. To remediate this, we're going to ingest data from our Kafka Connect topic and transform the data.
 
 To accomplish this, you must complete the following tasks:
 
@@ -89,7 +89,7 @@ You must run this Faust processing application with the following command:
 `faust -A faust_stream worker -l info`
 
 ### Step 5: Configure the KSQL Table
-Next, we will use KSQL to aggregate turnstile data for each of our stations. Recall that when we produced turnstile data, we simply emitted an event, not a count. What would make this data more useful would be to summarize it by station so that downstream applications always have an up-to-date count
+Next, we will use KSQL to aggregate turnstile data for each of our stations. Recall that when we produced turnstile data, we simply emitted an event, not a count. What would make this data more useful would be to summarize it by station so that downstream applications always have an up-to-date count.
 
 To accomplish this, you must complete the following tasks:
 
@@ -120,45 +120,43 @@ In addition to the course content you have already reviewed, you may find the fo
 * [REST Proxy API Reference](https://docs.confluent.io/current/kafka-rest/api.html#post--topics-(string-topic_name))
 * [Kafka Connect JDBC Source Connector Configuration Options](https://docs.confluent.io/current/connect/kafka-connect-jdbc/source-connector/source_config_options.html)
 
-## Directory Layout
+## Directory Hierarchy
 The project consists of two main directories, `producers` and `consumers`.
-
-The following directory layout indicates the files that the student is responsible for modifying by adding a `*` indicator. Instructions for what is required are present as comments in each file.
 
 ```
 * - Indicates that the student must complete the code in this file
 
 ├── consumers
-│   ├── consumer.py *
-│   ├── faust_stream.py *
-│   ├── ksql.py *
+│   ├── consumer.py 
+│   ├── faust_stream.py 
+│   ├── ksql.py 
 │   ├── models
 │   │   ├── lines.py
-│   │   ├── line.py *
-│   │   ├── station.py *
-│   │   └── weather.py *
+│   │   ├── line.py 
+│   │   ├── station.py 
+│   │   └── weather.py 
 │   ├── requirements.txt
 │   ├── server.py
 │   ├── topic_check.py
 │   └── templates
 │       └── status.html
 └── producers
-    ├── connector.py *
+    ├── connector.py 
     ├── models
     │   ├── line.py
-    │   ├── producer.py *
+    │   ├── producer.py 
     │   ├── schemas
     │   │   ├── arrival_key.json
-    │   │   ├── arrival_value.json *
+    │   │   ├── arrival_value.json 
     │   │   ├── turnstile_key.json
-    │   │   ├── turnstile_value.json *
+    │   │   ├── turnstile_value.json 
     │   │   ├── weather_key.json
-    │   │   └── weather_value.json *
-    │   ├── station.py *
+    │   │   └── weather_value.json 
+    │   ├── station.py 
     │   ├── train.py
-    │   ├── turnstile.py *
+    │   ├── turnstile.py 
     │   ├── turnstile_hardware.py
-    │   └── weather.py *
+    │   └── weather.py 
     ├── requirements.txt
     └── simulation.py
 ```
@@ -169,7 +167,7 @@ To run the simulation, you must first start up the Kafka ecosystem on their mach
 
 ```%> docker-compose up```
 
-Docker compose will take a 3-5 minutes to start, depending on your hardware. Please be patient and wait for the docker-compose logs to slow down or stop before beginning the simulation.
+Docker compose will take 3-5 minutes to start, depending on your hardware. Please be patient and wait for the docker-compose logs to slow down or stop before beginning the simulation.
 
 Once docker-compose is ready, the following services will be available:
 
@@ -194,7 +192,7 @@ When configuring services that run within Docker Compose, like **Kafka Connect y
 
 There are two pieces to the simulation, the `producer` and `consumer`. As you develop each piece of the code, it is recommended that you only run one piece of the project at a time.
 
-However, when you are ready to verify the end-to-end system prior to submission, it is critical that you open a terminal window for each piece and run them at the same time. **If you do not run both the producer and consumer at the same time you will not be able to successfully complete the project**.
+However, when you are ready to verify the end-to-end system before submission, you must open a terminal window for each piece and run them at the same time. **If you do not run both the producer and consumer at the same time you will not be able to complete the project**.
 
 #### To run the `producer`:
 
